@@ -32,30 +32,42 @@ Before you begin, ensure you have the following:
 - Node.js and npm installed (for AWS CDK)
 
 ## Setup and Deployment
-
 1. Clone this repository:
+
 git clone https://github.com/rockyale/youtube-video-summarizer.git
 cd youtube-video-summarizer
 
-2. Install the required Python dependencies:
+3. Create and activate a virtual environment:
+- For Unix or MacOS:
+  ```
+  python3 -m venv venv
+  source venv/bin/activate
+  ```
+- For Windows:
+  ```
+  python -m venv venv
+  .\venv\Scripts\activate
+  ```
+
+3. Install the required Python dependencies:
 pip install -r requirements.txt
 
-3. Install the AWS CDK:
+4. Install the AWS CDK:
 npm install -g aws-cdk
 
-4. Bootstrap your AWS environment (if you haven't already):
+5. Bootstrap your AWS environment (if you haven't already):
 cdk bootstrap
 
-5. Update the `lib/youtube_summarizer_stack.py` file with your specific configurations, if necessary.
-6. Run the build script to package the Lambda functions with their dependencies:
+6. Update the `lib/youtube_summarizer_stack.py` file with your specific configurations, if necessary.
+7. Run the build script to package the Lambda functions with their dependencies:
 
 python build_lambda.py
 
-7. Deploy the stack:
+8. Deploy the stack:
 cdk deploy
 
-8. Note the API Gateway URL output after deployment. This is the URL you'll use to access your application.
-
+9. Note the API Gateway URL output after deployment. This is the URL you'll use to access your application.
+    
 ## Usage
 
 1. Open the API Gateway URL in a web browser.
