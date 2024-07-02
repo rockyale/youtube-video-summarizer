@@ -10,6 +10,10 @@ The YouTube Video Summarizer app allows users to input a YouTube video URL and r
 2. Processing the transcript through Claude 3 Sonnet AI model (although you can change it in Bedrock)
 3. Presenting a formatted summary to the user
 
+## Architecture Diagramm
+
+![diagram](https://github.com/rockyale/youtube-video-summarizer/assets/133587264/a14b16c6-2226-4a20-82e1-76f04ef596cb)
+
 ## Features
 
 - Serverless architecture using AWS Lambda and API Gateway
