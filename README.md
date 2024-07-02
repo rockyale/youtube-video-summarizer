@@ -49,24 +49,39 @@ cd youtube-video-summarizer
   .\venv\Scripts\activate
   ```
 
-3. Install the required Python dependencies:
-pip install -r requirements.txt
+3 Install AWS CLI
+Download the AWS CLI:
+
+curl "https://awscli.amazonaws.com/AWSCLIV2.pkg" -o "AWSCLIV2.pkg"
+Install the AWS CLI:
+
+sudo installer -pkg ./AWSCLIV2.pkg -target /
+
+Validate your installation:
+
+aws --version
+Then, configure your AWS account using IAM credentials (or key/secret). Follow the prompts.
+
+aws configure
 
 4. Install the AWS CDK:
 npm install -g aws-cdk
 
-5. Bootstrap your AWS environment (if you haven't already):
+5. Install the required Python dependencies:
+pip install -r requirements.txt
+
+6. Bootstrap your AWS environment (if you haven't already):
 cdk bootstrap
 
-6. Update the `lib/youtube_summarizer_stack.py` file with your specific configurations, if necessary.
-7. Run the build script to package the Lambda functions with their dependencies:
+7. Update the `lib/youtube_summarizer_stack.py` file with your specific configurations, if necessary.
+8. Run the build script to package the Lambda functions with their dependencies:
 
 python build_lambda.py
 
-8. Deploy the stack:
+9. Deploy the stack:
 cdk deploy
 
-9. Note the API Gateway URL output after deployment. This is the URL you'll use to access your application.
+10. Note the API Gateway URL output after deployment. This is the URL you'll use to access your application.
     
 ## Usage
 
