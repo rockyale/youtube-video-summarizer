@@ -29,11 +29,11 @@ Before you begin, ensure you have the following:
 
 - An AWS account with appropriate permissions to create and manage Lambda functions, API Gateway, and IAM roles
 - Enable access to Sonnet v3, or other model of your choice in your preferred Region in Bedrock console
-- AWS CLI installed and configured with your credentials
-- Python 3.9 or later installed
-- Node.js and npm installed (for AWS CDK)
 
-## Setup and Deployment
+- Python 3.9 or later installed - (not required for deplyment option 2)  
+
+## Setup and Deployment OPTION 1 - Using local machine
+
 1. Clone this repository:
 ```
 git clone https://github.com/rockyale/youtube-video-summarizer.git
@@ -78,22 +78,33 @@ npm install -g aws-cdk
 ```
 pip install -r requirements.txt
 ```
-6. Bootstrap your AWS environment (if you haven't already):
-```
-cdk bootstrap
-```
-7. Run the build script to package the Lambda functions with their dependencies:
+6. Run the build script to package the Lambda functions with their dependencies:
 ```
 python build_lambda.py
 ```
-8. Update the `lib/youtube_summarizer_stack.py` file with your specific configurations, if necessary. (for example tags, logging options, etc)
+7. Bootstrap your AWS environment (if you haven't already):
+```
+cdk bootstrap
+```
+8. [OPTIONAL] Update the `lib/youtube_summarizer_stack.py` file with your specific configurations, if necessary. (for example tags, logging options, etc)
 
 9. Deploy the stack:
 ```
 cdk deploy
 ```
 10. Note the API Gateway URL output after deployment. This is the URL you'll use to access your application.
-    
+
+11. To delete stack you can use either
+```
+ cdk destroy 
+```
+or manually remove CloudFormation Stack, that will be created by CDK. 
+
+## Setup and Deployment OPTION 2 - Using AWS Cloudshell
+
+You can alternatively use Cloudshell for deployemnt, in this case you do not have to install prerequisites locally. Required packages are already pre-installed for you. 
+Run steps 1, 5-10. You can ignore version mismatch messages. cdk destroy does not work due to lack of space, but you can safely remove Cloudformation Stack manually.
+
 ## Usage
 
 1. Open the API Gateway URL in a web browser.
