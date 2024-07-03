@@ -12,7 +12,8 @@ The YouTube Video Summarizer app allows users to input a YouTube video URL and r
 
 ## Architecture Diagram
 
-![diagram](https://github.com/rockyale/youtube-video-summarizer/assets/133587264/a28d42d5-5903-4510-9506-2547b2b82961)
+
+![diagram](https://github.com/rockyale/youtube-video-summarizer/assets/133587264/1b082d05-7b4e-4620-ae69-01fa8e67afc9)
 
 
 ## Features
