@@ -33,11 +33,12 @@ Before you begin, ensure you have the following:
 
 ## Setup and Deployment
 1. Clone this repository:
-
+```
 git clone https://github.com/rockyale/youtube-video-summarizer.git
 cd youtube-video-summarizer
+```
 
-3. Create and activate a virtual environment:
+2. Create and activate a virtual environment:
 - For Unix or MacOS:
   ```
   python3 -m venv venv
