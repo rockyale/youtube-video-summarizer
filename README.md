@@ -26,7 +26,7 @@ The YouTube Video Summarizer app allows users to input a YouTube video URL and r
 Before you begin, ensure you have the following:
 
 - An AWS account with appropriate permissions to create and manage Lambda functions, API Gateway, and IAM roles
-- Enable access to Sonnet v3, or other model of your choice
+- Enable access to Sonnet v3, or other model of your choice in your preferred Region in Bedrock console
 - AWS CLI installed and configured with your credentials
 - Python 3.9 or later installed
 - Node.js and npm installed (for AWS CDK)
@@ -58,8 +58,8 @@ Install the AWS CLI:
 sudo installer -pkg ./AWSCLIV2.pkg -target /
 
 Validate your installation:
-
 aws --version
+
 Then, configure your AWS account using IAM credentials (or key/secret). Follow the prompts.
 
 aws configure
@@ -71,16 +71,19 @@ npm install -g aws-cdk
 pip install -r requirements.txt
 
 6. Bootstrap your AWS environment (if you haven't already):
+```
 cdk bootstrap
-
-7. Update the `lib/youtube_summarizer_stack.py` file with your specific configurations, if necessary.
-8. Run the build script to package the Lambda functions with their dependencies:
-
+```
+7. Run the build script to package the Lambda functions with their dependencies:
+```
 python build_lambda.py
+```
+8. Update the `lib/youtube_summarizer_stack.py` file with your specific configurations, if necessary. (for example tags, logging options, etc)
 
 9. Deploy the stack:
+```
 cdk deploy
-
+```
 10. Note the API Gateway URL output after deployment. This is the URL you'll use to access your application.
     
 ## Usage
