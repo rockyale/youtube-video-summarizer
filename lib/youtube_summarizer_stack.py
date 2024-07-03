@@ -3,6 +3,7 @@ from aws_cdk import (
     aws_lambda as _lambda,
     aws_apigateway as apigw,
     aws_iam as iam,
+    Tags,
     Duration,
 )
 from constructs import Construct
@@ -38,9 +39,13 @@ class YoutubeSummarizerStack(Stack):
 
         # Create API Gateway
         api = apigw.RestApi(
-            self, 'YoutubeSummarizerApi',
+           self, 'YoutubeSummarizerApi',
             rest_api_name='Youtube Summarizer API',
-            description='This service summarizes YouTube videos'
+           description='This service summarizes YouTube videos',
+            deploy_options=apigw.StageOptions(
+                logging_level=apigw.MethodLoggingLevel.INFO,
+                data_trace_enabled=True,
+            )
         )
 
         # Add resources and methods to API Gateway
@@ -62,3 +67,5 @@ class YoutubeSummarizerStack(Stack):
         # Allow frontend Lambda to invoke summarizer Lambda
         summarizer_lambda.grant_invoke(frontend_lambda)
         frontend_lambda.add_environment('SUMMARIZER_FUNCTION_NAME', summarizer_lambda.function_name)
+    
+        Tags.of(self).add("Project", "YouTube_summarizer") #Add your own tags here
