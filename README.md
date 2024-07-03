@@ -51,25 +51,30 @@ cd youtube-video-summarizer
 
 3 Install AWS CLI
 Download the AWS CLI:
-
+```
 curl "https://awscli.amazonaws.com/AWSCLIV2.pkg" -o "AWSCLIV2.pkg"
+```
 Install the AWS CLI:
-
+```
 sudo installer -pkg ./AWSCLIV2.pkg -target /
+```
 
 Validate your installation:
+```
 aws --version
-
+```
 Then, configure your AWS account using IAM credentials (or key/secret). Follow the prompts.
-
+```
 aws configure
-
+```
 4. Install the AWS CDK:
+```
 npm install -g aws-cdk
-
+```
 5. Install the required Python dependencies:
+```
 pip install -r requirements.txt
-
+```
 6. Bootstrap your AWS environment (if you haven't already):
 ```
 cdk bootstrap
