@@ -30,12 +30,25 @@ def extract_video_id(url):
 
 def get_video_transcript(video_id):
     try:
-        transcript = YouTubeTranscriptApi.get_transcript(video_id)
-        return ' '.join([entry['text'] for entry in transcript])
+        # Get all available transcripts
+        transcript_list = YouTubeTranscriptApi.list_transcripts(video_id)
+        
+        # Try to get the manually created transcript (usually in the original language)
+        try:
+            transcript = transcript_list.find_manually_created_transcript([])
+        except:
+            # If no manually created transcript is available, get the first available transcript
+            transcript = next(iter(transcript_list))
+        
+        # Fetch the actual transcript data
+        transcript_data = transcript.fetch()
+        
+        # Join the transcript text
+        return ' '.join([entry['text'] for entry in transcript_data])
     except Exception as e:
         print(f"An error occurred while fetching transcript: {e}")
         return None
-
+ 
 def summarize_text(text):
     bedrock = boto3.client(
         service_name='bedrock-runtime',
