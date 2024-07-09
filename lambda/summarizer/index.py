@@ -48,12 +48,37 @@ def summarize_text(text):
         )
     )
     
-    prompt = f"""Human: Summarize the following YouTube video transcript in 500 words or less. 
-    Focus on the main topic, key points, and top ideas:
+    prompt = f"""Human: You are provided with the transcript of a YouTube video. Your task is to generate a detailed summary that adapts in length based on the amount of useful information in the transcript. The summary should highlight the key ideas and elaborate on the main points discussed in each segment of the video. Conclude the summary with either key takeaways or important call-outs. Follow the structure below:
+
+    1. Introduction:
+
+    Begin with a brief introduction that mentions the title of the video, the main topic, and the speaker(s) involved.
+
+    2. Main Content:
+
+    Segmented Summary:
+
+    Divide the content into key segments or episodes based on the natural flow of the conversation.
+    For each segment, identify and elaborate on the main ideas discussed.
+    Provide detailed explanations for each key point, ensuring to cover all important aspects mentioned by the speaker(s).
+    Detail Management:
+
+    If a segment contains a lot of information, ensure that the summary is detailed and covers all critical points.
+    If a segment contains less useful information, provide a concise summary focusing on the core ideas.
+    3. Conclusion:
+
+    Key Takeaways:
+
+    Summarize the most important points covered in the video.
+    Highlight any actionable insights or advice given by the speaker(s).
+    Call-Outs:
+
+    If applicable, mention any noteworthy comments, quotes, or suggestions made during the video.
+    Include any important resources or references mentioned by the speaker(s).
 
     {text}
 
-    Assistant: Certainly! I'll provide a concise summary of the YouTube video transcript, focusing on the main topic, key points, and top ideas in 500 words or less.
+    Assistant: Certainly! I'll provide a summary of the YouTube video transcript, focusing on described instructions
 
     Human: Great, please proceed with the summary.
 
